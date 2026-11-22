@@ -1,0 +1,233 @@
+/* admin/assets/css/sweetalert-theme.css — ثيم SweetAlert2 مخصص */
+
+/* Popup */
+.sk-swal-popup{
+  border-radius:20px !important;
+  padding:32px 28px 24px !important;
+  box-shadow:
+    0 30px 80px rgba(10,18,20,.25),
+    0 0 0 1px rgba(228,234,234,.5) !important;
+  font-family:'IBM Plex Sans Arabic',system-ui,sans-serif !important;
+  direction:rtl !important;
+  max-width:440px !important;
+}
+.sk-swal-title{
+  font-family:'Changa',sans-serif !important;
+  font-size:22px !important;
+  font-weight:800 !important;
+  color:#0a1214 !important;
+  margin:0 0 8px !important;
+  padding:0 !important;
+  line-height:1.3 !important;
+}
+.sk-swal-html{
+  color:#546869 !important;
+  font-size:14px !important;
+  line-height:1.7 !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+.sk-swal-html b{color:#0a1214;font-weight:700}
+.sk-swal-html small{color:#95a3a4;font-size:12px}
+
+.sk-swal-icon{
+  margin:0 auto 18px !important;
+  width:76px !important;
+  height:76px !important;
+  border-width:3px !important;
+}
+.swal2-icon.swal2-warning{
+  border-color:#f59e0b !important;
+  color:#f59e0b !important;
+}
+.swal2-icon.swal2-error{
+  border-color:#ef4444 !important;
+  color:#ef4444 !important;
+}
+.swal2-icon.swal2-success{
+  border-color:#10b981 !important;
+  color:#10b981 !important;
+}
+.swal2-icon.swal2-info{
+  border-color:#3b82f6 !important;
+  color:#3b82f6 !important;
+}
+.swal2-icon.swal2-question{
+  border-color:#6ff2d0 !important;
+  color:#14c19e !important;
+}
+
+.swal2-icon.swal2-success .swal2-success-ring{
+  border-color:rgba(16,185,129,.35) !important;
+}
+.swal2-icon.swal2-success [class^='swal2-success-line']{
+  background-color:#10b981 !important;
+}
+.swal2-icon.swal2-error [class^='swal2-x-mark-line']{
+  background-color:#ef4444 !important;
+}
+
+/* Buttons */
+.sk-swal-actions{
+  gap:10px !important;
+  margin-top:24px !important;
+  display:flex !important;
+  justify-content:center !important;
+  width:100% !important;
+}
+.sk-swal-confirm,
+.sk-swal-cancel,
+.sk-swal-deny{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+  padding:12px 26px !important;
+  border-radius:11px !important;
+  font-family:inherit !important;
+  font-size:14px !important;
+  font-weight:700 !important;
+  border:none !important;
+  cursor:pointer !important;
+  transition:all .2s !important;
+  min-width:100px !important;
+  box-shadow:none !important;
+  margin:0 !important;
+  line-height:1.3 !important;
+}
+.sk-swal-confirm{
+  background:linear-gradient(135deg,#b7fbe9,#6ff2d0) !important;
+  color:#0a1214 !important;
+  box-shadow:0 6px 18px rgba(111,242,208,.4) !important;
+}
+.sk-swal-confirm:hover{
+  transform:translateY(-2px) !important;
+  box-shadow:0 10px 24px rgba(111,242,208,.55) !important;
+}
+.sk-swal-confirm:active{transform:translateY(0) !important}
+
+.sk-swal-confirm-danger{
+  background:linear-gradient(135deg,#fca5a5,#ef4444) !important;
+  color:#fff !important;
+  box-shadow:0 6px 18px rgba(239,68,68,.4) !important;
+}
+.sk-swal-confirm-danger:hover{
+  transform:translateY(-2px) !important;
+  box-shadow:0 10px 24px rgba(239,68,68,.55) !important;
+}
+
+.sk-swal-cancel{
+  background:#f3f6f5 !important;
+  color:#546869 !important;
+}
+.sk-swal-cancel:hover{
+  background:#e5eeeb !important;
+  color:#0a1214 !important;
+}
+
+/* Focus */
+.sk-swal-confirm:focus,
+.sk-swal-cancel:focus{
+  outline:none !important;
+  box-shadow:0 0 0 4px rgba(111,242,208,.3) !important;
+}
+
+/* Toast */
+.sk-toast-popup{
+  border-radius:14px !important;
+  padding:14px 20px !important;
+  background:#fff !important;
+  box-shadow:
+    0 12px 32px rgba(10,18,20,.15),
+    0 0 0 1px rgba(228,234,234,.6) !important;
+  font-family:'IBM Plex Sans Arabic',system-ui,sans-serif !important;
+  direction:rtl !important;
+  min-width:280px !important;
+  max-width:380px !important;
+}
+.sk-toast-title{
+  font-family:inherit !important;
+  font-size:14px !important;
+  font-weight:700 !important;
+  color:#0a1214 !important;
+  margin:0 !important;
+  padding:0 !important;
+  line-height:1.4 !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+}
+.sk-toast-title::before{
+  content:'';
+  width:8px;height:8px;
+  border-radius:50%;
+  flex:none;
+}
+.sk-toast-ok .sk-toast-title::before{
+  background:#10b981;
+  box-shadow:0 0 10px rgba(16,185,129,.6);
+}
+.sk-toast-err .sk-toast-title::before{
+  background:#ef4444;
+  box-shadow:0 0 10px rgba(239,68,68,.6);
+}
+.sk-toast-info .sk-toast-title::before{
+  background:#3b82f6;
+  box-shadow:0 0 10px rgba(59,130,246,.6);
+}
+.sk-toast-warn .sk-toast-title::before{
+  background:#f59e0b;
+  box-shadow:0 0 10px rgba(245,158,11,.6);
+}
+.sk-toast-progress{
+  background:linear-gradient(90deg,#b7fbe9,#6ff2d0) !important;
+}
+
+/* RTL fixes */
+.swal2-container{direction:rtl}
+.swal2-close{
+  color:#95a3a4 !important;
+  font-size:24px !important;
+  transition:.2s !important;
+  border-radius:8px !important;
+  width:36px !important;
+  height:36px !important;
+  top:14px !important;
+  left:14px !important;
+  right:auto !important;
+}
+.swal2-close:hover{color:#0a1214 !important;background:#f0f4f3 !important}
+
+/* Backdrop */
+.swal2-backdrop-show{
+  background:rgba(10,18,20,.55) !important;
+  backdrop-filter:blur(6px) !important;
+  -webkit-backdrop-filter:blur(6px) !important;
+}
+
+/* Animations */
+.swal2-show{animation:sk-swal-in .3s cubic-bezier(.2,.8,.2,1) !important}
+.swal2-hide{animation:sk-swal-out .2s ease !important}
+@keyframes sk-swal-in{
+  from{transform:scale(.9) translateY(20px);opacity:0}
+  to{transform:scale(1) translateY(0);opacity:1}
+}
+@keyframes sk-swal-out{
+  from{transform:scale(1);opacity:1}
+  to{transform:scale(.92);opacity:0}
+}
+
+/* Mobile */
+@media(max-width:480px){
+  .sk-swal-popup{
+    padding:24px 20px 20px !important;
+    border-radius:16px !important;
+    margin:0 16px !important;
+  }
+  .sk-swal-title{font-size:19px !important}
+  .sk-swal-html{font-size:13px !important}
+  .sk-swal-confirm,
+  .sk-swal-cancel,
+  .sk-swal-deny{padding:11px 18px !important;font-size:13px !important;min-width:80px !important}
+  .sk-swal-icon{width:64px !important;height:64px !important}
+}

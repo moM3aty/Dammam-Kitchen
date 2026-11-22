@@ -1,0 +1,366 @@
+/* admin/assets/css/sidebar.css — Sidebar (Clean & Final) */
+
+/* ═══════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════ */
+.admin-body{
+  padding-inline-start: var(--sb-w, 270px);
+  transition: padding-inline-start .3s cubic-bezier(.4,0,.2,1);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.admin-body.sb-collapsed{
+  padding-inline-start: 80px;
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  min-width: 0;
+  background: var(--bg);
+}
+.topbar{position: sticky; top: 0; z-index: 40;}
+.content{flex: 1; width: 100%; max-width: 1600px; margin: 0 auto; padding: 26px; min-width: 0;}
+
+/* ═══════════════════════════════════════════
+   SIDEBAR SHELL
+   ═══════════════════════════════════════════ */
+.sb{
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: var(--sb-w, 270px);
+  height: 100vh;
+  background: linear-gradient(180deg,#0f2429 0%,#0a1214 100%);
+  color: #c8dad7;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  z-index: 50;
+  border-left: 1px solid rgba(111,242,208,.08);
+  transition: width .3s cubic-bezier(.4,0,.2,1), transform .3s cubic-bezier(.4,0,.2,1);
+}
+.admin-body.sb-collapsed .sb{width: 80px}
+
+.sb::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 15% 5%,rgba(111,242,208,.1),transparent 45%),
+    radial-gradient(ellipse at 85% 95%,rgba(224,145,90,.06),transparent 50%);
+  pointer-events:none;
+}
+
+/* Close (mobile) */
+.sb-close{
+  display: none;
+  position: absolute; top: 14px; left: 14px;
+  width: 34px; height: 34px; border-radius: 9px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  color: #fff; cursor: pointer; z-index: 5;
+  align-items: center; justify-content: center;
+}
+.sb-close svg{width:18px;height:18px}
+
+/* ═══════════════════════════════════════════
+   LOGO
+   ═══════════════════════════════════════════ */
+.sb-top{
+  position: relative; z-index: 2;
+  padding: 20px 18px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  min-height: 76px;
+  display: flex; align-items: center;
+  flex: none;
+}
+.sb-logo-wrap{
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none; color: inherit;
+  width: 100%; min-width: 0;
+}
+.sb-logo{
+  flex: none;
+  width: 44px; height: 44px; border-radius: 12px;
+  background: linear-gradient(135deg,#b7fbe9,#6ff2d0);
+  color: #0a1214;
+  display: grid; place-items: center;
+  box-shadow: 0 6px 16px rgba(111,242,208,.35), inset 0 0 0 1.5px rgba(255,255,255,.3);
+  transition: .3s;
+}
+.sb-logo svg{width:26px;height:26px}
+.sb-logo-wrap:hover .sb-logo{transform: rotate(-6deg) scale(1.06)}
+
+.sb-brand{
+  display: flex; flex-direction: column; line-height: 1.2;
+  min-width: 0; white-space: nowrap; overflow: hidden;
+}
+.sb-brand b{font-family:'Changa',sans-serif;font-size:17px;font-weight:800;color:#fff}
+.sb-brand small{
+  display: flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 600;
+  color: #6ff2d0; letter-spacing: .8px;
+}
+.sb-live-dot{
+  display: inline-block; width: 6px; height: 6px;
+  border-radius: 50%; background: #6ff2d0;
+  box-shadow: 0 0 8px rgba(111,242,208,.9);
+  animation: sb-live 2s ease-in-out infinite;
+}
+@keyframes sb-live{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.5;transform:scale(1.3)}
+}
+
+/* ═══════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════ */
+.sb-nav{
+  position: relative; z-index: 2;
+  flex: 1; overflow-y: auto;
+  padding: 16px 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(111,242,208,.2) transparent;
+}
+.sb-nav::-webkit-scrollbar{width:4px}
+.sb-nav::-webkit-scrollbar-thumb{background:rgba(111,242,208,.2);border-radius:2px}
+
+.sb-sec{margin-bottom:20px}
+.sb-sec:last-child{margin-bottom:0}
+.sb-sec-t{
+  font-size: 10.5px; font-weight: 800;
+  color: #7a908d; text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 0 14px; margin-bottom: 10px;
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════
+   LINK
+   ═══════════════════════════════════════════ */
+.sb-lnk{
+  position: relative;
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13.5px; font-weight: 500;
+  color: #b8cbc8;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+  margin-bottom: 2px;
+  white-space: nowrap; overflow: hidden;
+}
+.sb-lnk-ic{
+  flex: none;
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  display: grid; place-items: center;
+  color: #8aa3a0;
+  transition: .25s;
+}
+.sb-lnk-ic svg{width:18px;height:18px;display:block}
+.sb-lnk-t{flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis}
+
+.sb-lnk:hover{background: rgba(255,255,255,.05); color: #fff}
+.sb-lnk:hover .sb-lnk-ic{color: #6ff2d0; background: rgba(111,242,208,.08)}
+
+.sb-lnk.active{
+  background: linear-gradient(90deg,rgba(111,242,208,.16),rgba(111,242,208,.04));
+  color: #6ff2d0;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px rgba(111,242,208,.15);
+}
+.sb-lnk.active .sb-lnk-ic{
+  background: linear-gradient(135deg,#b7fbe9,#6ff2d0);
+  color: #0a1214;
+  box-shadow: 0 4px 10px rgba(111,242,208,.3);
+}
+.sb-lnk.active::before{
+  content: "";
+  position: absolute;
+  right: 0; top: 50%; transform: translateY(-50%);
+  width: 3px; height: 22px;
+  border-radius: 0 3px 3px 0;
+  background: #6ff2d0;
+  box-shadow: 0 0 12px #6ff2d0;
+}
+
+.sb-badge{
+  flex: none;
+  margin-inline-start: auto;
+  background: #ef4444;
+  color: #fff;
+  font-size: 10.5px; font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 10px;
+  min-width: 20px; height: 20px;
+  display: grid; place-items: center;
+  line-height: 1;
+  box-shadow: 0 0 0 2px rgba(15,36,41,1);
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+.sb-foot{
+  position: relative; z-index: 2;
+  padding: 12px 12px 14px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  display: flex; align-items: center; gap: 8px;
+  flex: none;
+}
+.sb-user-card{
+  flex: 1; min-width: 0;
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px;
+  border-radius: 11px;
+  text-decoration: none; color: inherit;
+  transition: .2s;
+}
+.sb-user-card:hover{background: rgba(255,255,255,.06)}
+.sb-user-av{
+  flex: none;
+  width: 36px; height: 36px; border-radius: 10px;
+  background: linear-gradient(135deg,#b7fbe9,#6ff2d0);
+  color: #0a1214;
+  display: grid; place-items: center;
+  font-weight: 800; font-size: 14px;
+  box-shadow: 0 4px 10px rgba(111,242,208,.3);
+}
+.sb-user-info{
+  display: flex; flex-direction: column; line-height: 1.25;
+  min-width: 0; white-space: nowrap; overflow: hidden;
+}
+.sb-user-info b{font-size: 12.5px; font-weight: 700; color: #fff; overflow: hidden; text-overflow: ellipsis}
+.sb-user-info small{font-size: 10.5px; color: #7a908d}
+
+.sb-logout{
+  flex: none;
+  width: 36px; height: 36px;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  color: #8ca3a0;
+  transition: .2s;
+  text-decoration: none;
+}
+.sb-logout:hover{background: rgba(239,68,68,.15); color: #ef4444}
+.sb-logout svg{width: 17px; height: 17px}
+
+/* ═══════════════════════════════════════════
+   ✅ COLLAPSED STATE — النسخة الصحيحة
+   ═══════════════════════════════════════════ */
+
+/* نخفي فقط النصوص والـ brand والـ badge — مش الأيقونات */
+.admin-body.sb-collapsed .sb-brand,
+.admin-body.sb-collapsed .sb-sec-t,
+.admin-body.sb-collapsed .sb-lnk-t,
+.admin-body.sb-collapsed .sb-badge,
+.admin-body.sb-collapsed .sb-user-info{
+  display: none !important;
+}
+
+/* نخلي كل رابط مربع متماثل في الوسط */
+.admin-body.sb-collapsed .sb-lnk{
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ✅ الأيقونة: تأكيد الظهور الكامل */
+.admin-body.sb-collapsed .sb-lnk-ic{
+  display: grid !important;
+  place-items: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.admin-body.sb-collapsed .sb-lnk-ic svg{
+  display: block !important;
+  width: 22px !important;
+  height: 22px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* اللوجو فوق في الوسط */
+.admin-body.sb-collapsed .sb-top{
+  justify-content: center;
+  padding: 20px 10px;
+}
+.admin-body.sb-collapsed .sb-logo-wrap{justify-content: center}
+
+/* الفوتر */
+.admin-body.sb-collapsed .sb-foot{
+  justify-content: center;
+  padding: 12px 8px 14px;
+}
+.admin-body.sb-collapsed .sb-user-card{
+  flex: none;
+  padding: 8px;
+}
+.admin-body.sb-collapsed .sb-logout{display: none}
+
+/* Tooltip */
+.admin-body.sb-collapsed .sb-lnk::after{
+  content: attr(data-title);
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(10,18,20,.98);
+  color: #fff;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: .2s;
+  z-index: 100;
+  box-shadow: 0 6px 16px rgba(0,0,0,.35);
+  border: 1px solid rgba(111,242,208,.3);
+}
+.admin-body.sb-collapsed .sb-lnk:hover::after{
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════ */
+@media (max-width: 900px){
+  .admin-body,
+  .admin-body.sb-collapsed{
+    padding-inline-start: 0 !important;
+  }
+  .content{padding: 18px;}
+  .sb{
+    width: 280px;
+    transform: translateX(100%);
+    box-shadow: -20px 0 60px rgba(0,0,0,.35);
+  }
+  .admin-body.sb-mobile-open .sb{
+    transform: translateX(0);
+  }
+  .sb-close{display: flex}
+  .sb-top{padding: 20px 18px 20px 50px}
+  .admin-body.sb-mobile-open::after{
+    content: "";
+    position: fixed; inset: 0;
+    background: rgba(10,18,20,.55);
+    backdrop-filter: blur(3px);
+    z-index: 45;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .sb-live, .sb-logo, .sb-user-av, .sb-lnk, .sb-lnk-ic, .sb{animation: none; transition: none}
+}
